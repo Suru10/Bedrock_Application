@@ -54,13 +54,17 @@ python3 -m venv venv
 source venv/bin/activate
 # On Windows:
 # venv\Scripts\activate
+```
+Upgrade your pip, and install libraries
 
+```bash
 pip install --upgrade pip
 pip install -r requirements.txt
-
+```
+Add AWS Credentials
+Open .env with a text editor and add your AWS credentials and region:
+```bash
 AWS_ACCESS_KEY_ID=YOUR_AWS_ACCESS_KEY
 AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_ACCESS_KEY
 AWS_DEFAULT_REGION=us-east-1
-
-Add AWS Credentials
-Open .env with a text editor and add your AWS credentials and region:
+```
