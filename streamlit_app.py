@@ -70,12 +70,12 @@ def get_vector_store(docs):
     )
     vectorstore_faiss.save_local("faiss_index")
 
-def get_claude_llm():
-    ##create the Anthropic Model
-    llm=Bedrock(model_id="ai21.j2-mid-v1",client=bedrock,
-                model_kwargs={'maxTokens':512})
+# def get_claude_llm():
+#     ##create the Anthropic Model
+#     llm=Bedrock(model_id="ai21.j2-mid-v1",client=bedrock,
+#                 model_kwargs={'maxTokens':512})
     
-    return llm
+#     return llm
 
 def get_llama2_llm():
     ##create the Anthropic Model
@@ -132,14 +132,14 @@ def main():
                 get_vector_store(docs)
                 st.success("Done")
 
-    if st.button("Claude Output"):
-        with st.spinner("Processing..."):
-            faiss_index = FAISS.load_local("faiss_index", bedrock_embeddings, allow_dangerous_deserialization=True)
-            llm=get_claude_llm()
+    # if st.button("Claude Output"):
+    #     with st.spinner("Processing..."):
+    #         faiss_index = FAISS.load_local("faiss_index", bedrock_embeddings, allow_dangerous_deserialization=True)
+    #         llm=get_claude_llm()
             
-            #faiss_index = get_vector_store(docs)
-            st.write(get_response_llm(llm,faiss_index,user_question))
-            st.success("Done")
+    #         #faiss_index = get_vector_store(docs)
+    #         st.write(get_response_llm(llm,faiss_index,user_question))
+    #         st.success("Done")
 
     if st.button("Llama2 Output"):
         with st.spinner("Processing..."):
